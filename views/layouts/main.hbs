@@ -8,8 +8,15 @@
 </head>
 
 <body>
-    <h1>layouts</h1>
+    {{>navbar}}
 
+    <main>
+        {{{body}}}
+    </main>
+    {{>footer
+    text="este es mi footer2"
+    year="2024"
+    }}
 </body>
 
 </html>
