@@ -42,16 +42,18 @@ app.get('/services/:name', (req, res) => {
     //   undefined
 
     if (!service) {
-        return res.render('404', { title: "no se encuentra el servicio" })
+        return res.render('404', { title: "no se encuentra" })
     }
 
     return res.render('service', { service })
 
+    app.get('*', (req, res) => {
+        return res.status(404).render('404', { title: "no se encuentra" });
+    })
+
 });
 
-app.get('*', (req, res) => {
-    return res.status(404).render('404', { title: 'no se encuentra la pagina' });
-})
+
 
 app.listen(5000, () => console.log('servidor encendido en http:/localhost:5000'))
 
